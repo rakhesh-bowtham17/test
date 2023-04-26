@@ -1,3 +1,4 @@
+@import '../../styles/scss/index.module.scss';
 .login {
   background-image: url("../../assets/images/background.jpeg");
   height: 100vh;
@@ -8,29 +9,20 @@
   .loginModal {
     position: absolute;
     z-index: 1;
-    background-color: #000;
+    background-color: $black;
     height: 100%;
     width: 435px;
     right: 80px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
+    @include flex($direction:column,$justifyContent:center,$alignItems:center,$gap:30);
     .login-section{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 30px;
+      @include flex($direction:column,$justifyContent:center,$alignItems:center,$gap:30);
       position: absolute;
     top: 30%;
     right: 10%;
     }
     .logo {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @include flex($justifyContent:center,$alignItems:center);
+      
     }
   }
 }

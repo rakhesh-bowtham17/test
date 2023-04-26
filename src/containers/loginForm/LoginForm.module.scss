@@ -1,3 +1,4 @@
+@import '../../styles/scss/index.module.scss';
 .toastMessage {
   background-color: #ffa503;
     width: 126%;
@@ -14,12 +15,12 @@
   flex-direction: column;
   gap: 26px;
   & .error {
-    color: red;
+    color: $red;
   }
 }
 
 .passwordRecovery {
-  color: #fff;
+  color: $white;
   align-self: flex-start;
   font-size: 12px;
   font-weight: 600;

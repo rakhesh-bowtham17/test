@@ -24,26 +24,21 @@ function LoginForm() {
   } = useForm({ resolver: yupResolver(loginSchema) });
 
   const [hidden, setHidden] = useState(false);
-const i=1;
   const onSubmit = async (data) => {
-if(i%2==0){
-  setHidden(false);
-}else{
-  setHidden(true);
-}
-    // const userCreds = {
-    //   adminMail: data.Username,
-    //   adminPassword: data.Password,
-    // };
-    // const response = await loginService(userCreds);
-    // if (response.status === 200) {
-    //   setHidden(false);
-    //   setToken(response.data.data);
-    //   navigate("/dashboard");
-    // } else {
-    //   setHidden(true);
-    // }
-    // reset();
+
+    const userCreds = {
+      adminMail: data.Username,
+      adminPassword: data.Password,
+    };
+    const response = await loginService(userCreds);
+    if (response.status === 200) {
+      setHidden(false);
+      setToken(response.data.data);
+      navigate("/dashboard");
+    } else {
+      setHidden(true);
+    }
+    reset();
   };
   return (
     <>
