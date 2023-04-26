@@ -70,4 +70,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 
+## `How to add Js-docs using vs-code Extension`
+1. Go to Extension in vs code
+2. Search **codedox**
+3. install the Extension
+4. Position cursor before a function declaration
+5. open the Command Palette using the shortcut **Cmd-Shift-P** 
+6. and typing Codedox: Insert comments at cursor and click
+7. now js docs will added, you can add what ever you want to that docs
 
+Refer the Jsdocs : [https://jsdoc.app](https://jsdoc.app)

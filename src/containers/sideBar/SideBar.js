@@ -15,7 +15,7 @@ function SideBar() {
   return (
     <div className={styles["side-bar"]}>
       <div className={styles["nav-items"]}>
-        <Logo src={cdwLogo} alt="cdw-logo" />
+        <Logo src={cdwLogo} alt="cdw-logo" page={"menu"} />
         <Menu />
       </div>
       <Logout />

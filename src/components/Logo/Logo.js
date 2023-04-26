@@ -1,5 +1,7 @@
 import { AppConstants } from "../../constants/app-constants";
 import highLighter from "../../utils/logoHighLighter";
+
+
 import styles from "./Logo.module.scss";
 
 /**
@@ -15,7 +17,7 @@ function Logo({ src, alt }) {
     <div className={styles[`logo`]}>
       <img src={src} alt={alt} />
 
-      <h1><span>{normalText}</span><span className={styles["highLightedText"]}>{highLightedText}</span> </h1>
+      <h1><span>{normalText}</span> <span className={styles["highLightedText"]}>{highLightedText}</span> </h1>
     </div>
   );
 }
