@@ -1,3 +1,4 @@
+@import "../../styles/scss/index.module.scss";
 .logo {
   height: 100px;
   display: flex;
@@ -12,10 +13,10 @@
     font-size: 26px;
     letter-spacing: 2px;
 
-    color: #ffffff;
-  
-  }
-  .highLightedText{
-    color: #ff0000;
+    color: $white;
+
+    .highLightedText {
+      color: $red;
+    }
   }
 }

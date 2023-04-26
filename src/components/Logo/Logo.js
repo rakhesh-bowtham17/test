@@ -10,12 +10,17 @@ import styles from "./Logo.module.scss";
  * @returns Logo
  */
 function Logo({ src, alt }) {
- const [normalText,highLightedText] = highLighter(AppConstants.LOGO.LABEL)
+  const [normalText, highLightedText] = highLighter(AppConstants.LOGO.LABEL);
   return (
     <div className={styles[`logo`]}>
       <img src={src} alt={alt} />
 
-      <h1><span>{normalText}</span><span className={styles["highLightedText"]}>{highLightedText}</span> </h1>
+      <h1>
+        <span>{normalText}</span>
+        <span className={styles["highLightedText"]}>
+          {highLightedText}
+        </span>
+      </h1>
     </div>
   );
 }

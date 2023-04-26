@@ -1,0 +1,54 @@
+.cash-form {
+  background-color: #f8f8f8;
+  padding: 33px 27px 25px 27px;
+  .cash-heading {
+    font-size: 0.9em;
+    font-weight: 500;
+    margin-bottom: 5px;
+    width: 110px;
+  }
+  .cash-title {
+    font-size: 0.9em;
+    font-weight: 500;
+    margin-bottom: 5px;
+    width: 110px;
+    margin-left: 300px;
+  }
+  .carry-over-label {
+    font-size: 0.9em;
+    font-weight: 500;
+    margin-bottom: 5px;
+    width: 115px;
+    margin-left: 200px;
+  }
+  .cash-location {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+    font-weight: 500;
+    margin-bottom: 5px;
+    width: 180px;
+  }
+  .cash-desc {
+    font-size: 0.8em;
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+}
+.label {
+  display: flex;
+
+  p {
+    font-size: 1.1em;
+    font-weight: 500;
+  }
+}
+.row {
+  display: flex;
+  gap: 20px;
+  margin: 10px 0;
+  p {
+    font-size: 1.1em;
+    font-weight: 500;
+  }
+}

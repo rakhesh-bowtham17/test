@@ -8,9 +8,8 @@ import Button from "../../components/Button/Button";
 import useCookie from "../../hooks/use-cookie/use-cookie";
 import { useNavigate } from "react-router-dom";
 import LabeledInput from "../formInput/LabeledInput";
+
 function LoginForm() {
-  const navigate = useNavigate();
-  const { setToken } = useCookie();
   const { NAME, PASSWORD, LOGIN_LABEL, FORGOT_PASSWORD_LABEL } =
     AppConstants.LOGIN_PAGE.USER;
   const { INVALID_USER_MSG, USERNAME_REQUIRED_MSG, PASSWORD_REQUIRED_MSG } =
@@ -24,19 +23,21 @@ function LoginForm() {
 
   const [hidden, setHidden] = useState(false);
 
-  const onSubmit = async (data) => {
-    const userCreds = {
+  const onSubmit = (data) => {
+    data = {
       adminMail: data.Username,
       adminPassword: data.Password,
     };
-    const response = await loginService(userCreds);
-    if (response.status === 200) {
-      setHidden(false);
-      setToken(response.data.data);
-      navigate("/dashboard");
-    } else {
-      setHidden(true);
-    }
+    fetch("http://localhost:4000/admin/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res.code);
+        res.code !== 400 ? setHidden(false) : setHidden(true);
+      });
     reset();
   };
   return (
@@ -55,13 +56,8 @@ function LoginForm() {
           register={register(PASSWORD, { required: PASSWORD_REQUIRED_MSG })}
           errors={errors}
         />
-        <Button
-          color={"primary"}
-          size={"xxl"}
-          shape={"solid"}
-          label={LOGIN_LABEL}
-          iconName=""
-        />
+
+        <button className={style.loginButton}>{LOGIN_LABEL}</button>
         <span className={style.passwordRecovery}>{FORGOT_PASSWORD_LABEL}</span>
       </form>
     </>

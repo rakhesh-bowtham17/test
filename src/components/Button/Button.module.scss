@@ -1,17 +1,23 @@
-@import "../../styles/scss/color.module";
+@import "../../styles/scss/index.module.scss";
 .button {
-  color: $white;
-  height: 45px;
+  color: white;
+  padding: 15px;
   font-size: 15px;
   font-weight: 600;
-  cursor: pointer;
+  @include flex($justifyContent: center, $alignItems: center, $gap: 10px);
 }
+
 .primary {
   background-color: $red;
 }
 .secondary {
-  background-color: $secondary-color;
+  background-color: $white;
 }
+.transparent {
+  background-color: transparent;
+}
+
+
 // borders
 .border-solid {
   border: 0px solid;
@@ -19,6 +25,9 @@
 .border-round {
   border: 0px solid;
   border-radius: 5px;
+}
+.border-none {
+  border: none;
 }
 // sizes
 /* Small buttons */
@@ -48,3 +57,6 @@
 .button-full {
   width: 420px;
 }
+
+/* //width
+85,105,135,165,170,270,275,345 */
