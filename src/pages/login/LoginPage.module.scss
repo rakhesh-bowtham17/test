@@ -17,7 +17,7 @@
       $direction: column,
       $justifyContent: center,
       $alignItems: center,
-      $gap: 30
+      $gap: 30px
     );
     .login-section {
       @include flex(
