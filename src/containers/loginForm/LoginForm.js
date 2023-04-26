@@ -1,27 +1,26 @@
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import Input from "../../components/form-inputs/input/Input";
 import style from "./LoginForm.module.scss";
 import { AppConstants } from "../../constants/app-constants";
 import { ErrorConstants } from "../../constants/error-constants";
-import { loginSchema } from "../../utils/yupValidator";
 import loginService from "../../services/LoginService";
 import { useState } from "react";
 import Button from "../../components/Button/Button";
 import useCookie from "../../hooks/use-cookie/use-cookie";
 import { useNavigate } from "react-router-dom";
+import LabeledInput from "../formInput/LabeledInput";
 function LoginForm() {
   const navigate = useNavigate();
   const { setToken } = useCookie();
   const { NAME, PASSWORD, LOGIN_LABEL, FORGOT_PASSWORD_LABEL } =
     AppConstants.LOGIN_PAGE.USER;
-  const { INVALID_USER_MSG } = ErrorConstants.ACCOUNT;
+  const { INVALID_USER_MSG, USERNAME_REQUIRED_MSG, PASSWORD_REQUIRED_MSG } =
+    ErrorConstants.ACCOUNT;
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm({ resolver: yupResolver(loginSchema) });
+  } = useForm();
 
   const [hidden, setHidden] = useState(false);
 
@@ -44,17 +43,16 @@ function LoginForm() {
     <>
       {hidden && <div className={style.toastMessage}>{INVALID_USER_MSG}</div>}
       <form onSubmit={handleSubmit(onSubmit)} className={style.loginForm}>
-        <Input
+        <LabeledInput
           type="text"
           name={NAME}
-          register={register(NAME)}
+          register={register(NAME, { required: USERNAME_REQUIRED_MSG })}
           errors={errors}
         />
-
-        <Input
+        <LabeledInput
           type="password"
           name={PASSWORD}
-          register={register(PASSWORD)}
+          register={register(PASSWORD, { required: PASSWORD_REQUIRED_MSG })}
           errors={errors}
         />
         <Button

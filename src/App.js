@@ -2,7 +2,7 @@ import { RouteConstants } from "./constants/routes-constants";
 import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
 import { useEffect } from "react";
 import Cookies from "js-cookie";
-import ProtectedRoute from "./components/ProtectedRoute/protected-route";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import useCookie from "./hooks/use-cookie/use-cookie";
 import "./styles/scss/global.module.scss";
 import LoginPage from "./pages/login/LoginPage";

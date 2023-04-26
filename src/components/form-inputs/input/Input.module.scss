@@ -1,13 +1,10 @@
-.label-and-input {
+@import "../../../styles/scss/index.module.scss";
+
+.input {
   display: flex;
   flex-direction: column;
   position: relative;
   gap: 10px;
-  & .label {
-    color: #fff;
-    font-size: 14px;
-    font-weight: 600;
-  }
   & .input-box {
     width: 345px;
     height: 45px;
@@ -30,7 +27,7 @@
     position: absolute;
     height: 40px;
     width: 5px;
-    top: 29px;
+    top: 3px;
     right: 4px;
   }
 }
