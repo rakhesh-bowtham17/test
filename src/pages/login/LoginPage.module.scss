@@ -1,4 +1,3 @@
-@import "../../styles/scss/index.module.scss";
 .login {
   background-image: url("../../assets/images/background.jpeg");
   height: 100vh;
@@ -9,7 +8,7 @@
   .loginModal {
     position: absolute;
     z-index: 1;
-    background-color: $black;
+    background-color: #000;
     height: 100%;
     width: 435px;
     right: 80px;
@@ -31,7 +30,9 @@
       right: 10%;
     }
     .logo {
-      @include flex($justifyContent: center, $alignItems: center);
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 }

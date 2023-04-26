@@ -2,7 +2,7 @@ import React from 'react';
 import style from './Button.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as SolidIcons from '@fortawesome/free-solid-svg-icons';
-function Button({ color, size, shape, label, iconName, click }) {
+function Button({ color, size, shape, label, iconName, click,iconColor}) {
   function renderIcon() {
     if (iconName) {
       const faIconName = `fa${iconName.charAt(0).toUpperCase()}${iconName.slice(1)}`;
@@ -16,9 +16,9 @@ function Button({ color, size, shape, label, iconName, click }) {
     }
   }
   return (
-    <button className={`${style[color]} ${style[`button-${size}`]} ${style[`border-${shape}`]} ${style.button}`} onClick={click}>
+    <button className={`${style[color]} ${style[`button-${size}`]} ${style[`border-${shape}`]} ${style.button}` } onClick={click}>
       {label}
-      {iconName ? <span style={{ paddingLeft: '5rem' }}>{renderIcon()}</span> : null}
+      {iconName ? <span>{renderIcon()}</span> : null}
     </button>
   );
 }

@@ -1,26 +1,32 @@
-@import "../../styles/scss/index.module.scss";
 .toastMessage {
   background-color: #ffa503;
-  width: 126%;
+  width: 100%;
   height: 45px;
-  position: relative;
   padding: 15px 30px;
   box-sizing: border-box;
   font-size: 13px;
   font-weight: 700;
-  right: 2px;
 }
 .loginForm {
   display: flex;
   flex-direction: column;
   gap: 26px;
   & .error {
-    color: $red;
+    color: red;
+  }
+  & .loginButton {
+    color: #fff;
+    background-color: #cc0100;
+    border: none;
+    width: 345px;
+    height: 45px;
+    font-size: 13px;
+    font-weight: 600;
   }
 }
 
 .passwordRecovery {
-  color: $white;
+  color: #fff;
   align-self: flex-start;
   font-size: 12px;
   font-weight: 600;

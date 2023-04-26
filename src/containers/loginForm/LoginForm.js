@@ -5,14 +5,9 @@ import style from "./LoginForm.module.scss";
 import { AppConstants } from "../../constants/app-constants";
 import { ErrorConstants } from "../../constants/error-constants";
 import { loginSchema } from "../../utils/yupValidator";
-import loginService from "../../services/LoginService";
 import { useState } from "react";
-import Button from "../../components/Button/Button";
-import useCookie from "../../hooks/use-cookie/use-cookie";
-import { useNavigate } from "react-router-dom";
+
 function LoginForm() {
-  const navigate = useNavigate();
-  const { setToken } = useCookie();
   const { NAME, PASSWORD, LOGIN_LABEL, FORGOT_PASSWORD_LABEL } =
     AppConstants.LOGIN_PAGE.USER;
   const { INVALID_USER_MSG } = ErrorConstants.ACCOUNT;
@@ -25,19 +20,21 @@ function LoginForm() {
 
   const [hidden, setHidden] = useState(false);
 
-  const onSubmit = async (data) => {
-    const userCreds = {
+  const onSubmit = (data) => {
+    data = {
       adminMail: data.Username,
       adminPassword: data.Password,
     };
-    const response = await loginService(userCreds);
-    if (response.status === 200) {
-      setHidden(false);
-      setToken(response.data.data);
-      navigate("/dashboard");
-    } else {
-      setHidden(true);
-    }
+    fetch("http://localhost:4000/admin/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res.code);
+        res.code !== 400 ? setHidden(false) : setHidden(true);
+      });
     reset();
   };
   return (
@@ -57,13 +54,8 @@ function LoginForm() {
           register={register(PASSWORD)}
           errors={errors}
         />
-        <Button
-          color={"primary"}
-          size={"xxl"}
-          shape={"solid"}
-          label={LOGIN_LABEL}
-          iconName=""
-        />
+
+        <button className={style.loginButton}>{LOGIN_LABEL}</button>
         <span className={style.passwordRecovery}>{FORGOT_PASSWORD_LABEL}</span>
       </form>
     </>
