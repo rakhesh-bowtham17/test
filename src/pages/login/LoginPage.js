@@ -5,10 +5,12 @@ import cdwLogo from "../../assets/logo/cdw-white-logo.svg";
 function LoginPage({ setToken }) {
   return (
     <>
-      <div className={style.login}>
-        <div className={style.loginModal}>
-          <Logo src={cdwLogo} />
-          <LoginForm />
+      <div className={style["login"]}>
+        <div className={style["loginModal"]}>
+          <div className={style["login-section"]}>
+            <Logo src={cdwLogo} />
+            <LoginForm />
+          </div>
         </div>
       </div>
     </>

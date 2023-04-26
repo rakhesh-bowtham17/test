@@ -4,7 +4,7 @@ const useCookie = () => {
   const [authToken, setAuthToken] = useState("");
   const setToken = (token) => {
     if (token) {
-      Cookies.set("token", token, { expires: 1 / 144 });
+      Cookies.set("token", token, { expires: 1 / 1440 });
       setAuthToken(token);
     } else {
       Cookies.remove("token");

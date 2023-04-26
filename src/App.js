@@ -41,7 +41,6 @@ function App() {
           <Route path={EVENTS} element={<Events />} /> 
           <Route path={CONFIGS} element={<Configs />} />*/}
         </Route>
-        <Route path="*" element={<LoginPage />}></Route>
       </Routes>
     </BrowserRouter>
   );

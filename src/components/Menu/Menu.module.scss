@@ -1,5 +1,4 @@
-$color_1: #fff;
-$background-color_1: #cc0100;
+@import "../../styles/scss/index.module.scss";
 
 .list {
   list-style-type: none;
@@ -12,19 +11,19 @@ $background-color_1: #cc0100;
   text-decoration: none;
   letter-spacing: 1px;
   font-size: 1.1em;
-  color: $color_1;
+  color: $white;
 }
 .active-link {
   line-height: 2;
   text-decoration: none;
   letter-spacing: 1px;
   font-size: 1.1em;
-  color: $color_1;
+  color: $white;
   div {
     position: absolute;
     left: 0;
     width: 16px;
-    height: 38px;  
-    background-color: $background-color_1;
+    height: 38px;
+    background-color: $red;
   }
 }
