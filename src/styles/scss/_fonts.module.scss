@@ -1,0 +1,20 @@
+$primary-font: "OpenSans-Regular";
+$secondary-font: "OpenSans-Bold";
+$heading:"OpenSans-Italic";
+$fonts: (
+  "OpenSans-Regular",
+  "OpenSans-Bold",
+  "OpenSans-Light",
+  "OpenSans-BoldItalic",
+  "OpenSans-ExtraBold",
+  "OpenSans-ExtraBoldItalic",
+  "OpenSans-Italic",
+  "OpenSans-Light"
+);
+
+@each $font in $fonts {
+  @font-face {
+    font-family: #{$font};
+    src: url("../../fonts/open-sans/#{$font}.ttf") format("truetype");
+  }
+}
